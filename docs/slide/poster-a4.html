@@ -31,12 +31,9 @@
     display:flex; flex-direction:column; overflow:hidden; box-shadow:0 2px 14px rgba(0,0,0,.18);
   }
 
-  /* ---- Dải hoa tiết thương hiệu (phẳng, full-bleed) ---- */
-  .rule{ display:flex; height:5mm; flex:0 0 auto; }
-  .rule .n{ flex:1; background:var(--navy); }
-  .rule .y{ width:52px; background:var(--yellow); }
-  .rule .g{ width:30px; background:var(--green-b); }
-  .rule.rev{ flex-direction:row-reverse; }
+  /* ---- Dải hoa tiết thương hiệu TVU (lấy từ ảnh brand, đúng góc nghiêng) ---- */
+  .brandband{ display:block; width:100%; height:8.5mm; object-fit:cover; object-position:left center; flex:0 0 auto; }
+  .brandband.bot{ transform:rotate(180deg); }
 
   /* ---- Header ---- */
   .header{ display:flex; align-items:center; gap:14px; padding:9px var(--cpad); }
@@ -45,8 +42,7 @@
   .header .org .vn{ font-size:15px; font-weight:800; color:var(--navy); letter-spacing:.3px; }
   .header .org .fac{ font-size:10.5px; color:var(--blue); margin-top:1px; }
   .header .org .en{ font-size:9.5px; color:var(--muted); letter-spacing:2px; margin-top:1px; text-transform:uppercase; }
-  .header .kl{ background:var(--navy); color:#fff; padding:7px 13px; font-size:10px; font-weight:700; letter-spacing:1.6px; white-space:nowrap; text-align:center; line-height:1.5; }
-  .header .kl small{ display:block; font-size:8px; color:var(--yellow); letter-spacing:1px; font-weight:600; }
+  .header .dtfi{ height:16mm; flex:0 0 auto; object-fit:contain; }
 
   /* ---- Vùng nội dung ---- */
   .inner{ flex:1; display:flex; flex-direction:column; gap:7px; padding:6px var(--cpad) 4px; min-height:0; }
@@ -121,7 +117,7 @@
 <body>
 <section class="page">
 
-  <div class="rule"><span class="n"></span><span class="y"></span><span class="g"></span></div>
+  <img class="brandband" src="assets/band.png" alt="">
 
   <!-- HEADER -->
   <div class="header">
@@ -131,14 +127,14 @@
       <div class="fac">Khoa Kỹ thuật &amp; Công nghệ — Ngành Công nghệ thông tin</div>
       <div class="en">Tra Vinh University</div>
     </div>
-    <div class="kl">KHÓA LUẬN TỐT NGHIỆP<small>NĂM 2026</small></div>
+    <img class="dtfi" src="assets/dtfi.png" alt="Giá trị cốt lõi TVU: Devotion · Transparency · Friendliness · Innovation">
   </div>
 
   <div class="inner">
 
     <!-- TIÊU ĐỀ -->
     <div class="title">
-      <div class="pre">Đề tài khóa luận</div>
+      <div class="pre">Khóa luận tốt nghiệp · Năm 2026</div>
       <h1>Mô hình học máy dự đoán tốc độ tạo hydro trong hệ thống lên men kỵ khí</h1>
       <div class="who">
         <span class="chip"><b>SV:</b> Trần Minh Điền</span>
@@ -247,7 +243,7 @@
     <span class="l"><b>Trần Minh Điền</b> · 110122050 · DA22TTA · Tham chiếu: Wang et al. (2024), Int. J. Hydrogen Energy</span>
     <span class="r">www.tvu.edu.vn</span>
   </div>
-  <div class="rule rev"><span class="n"></span><span class="y"></span><span class="g"></span></div>
+  <img class="brandband bot" src="assets/band.png" alt="">
 
 </section>
 </body>
