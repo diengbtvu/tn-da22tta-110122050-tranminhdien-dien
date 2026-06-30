@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Poster tốt nghiệp – Trần Minh Điền – DA22TTA – Trường ĐH Trà Vinh</title>
+<style>
+  /* ===== Poster 1 trang A4 dọc · nhận diện thương hiệu TVU · phẳng (không gradient) ===== */
+  :root{
+    --navy:#001E3C;     /* xanh navy thương hiệu (header/footer)   */
+    --blue:#003282;     /* xanh TVU chủ đạo                         */
+    --blue-d:#002360;   /* xanh đậm cho chữ nhấn                    */
+    --yellow:#F4DE00;   /* vàng thương hiệu (chỉ dùng làm điểm nhấn)*/
+    --green:#6FA42C;    /* xanh lá đậm – chữ nhấn đọc được          */
+    --green-b:#8CC850;  /* xanh lá tươi – khối trang trí            */
+    --ink:#15202b; --muted:#5d6b78; --line:#cdd7e2; --panel:#eef3f9;
+    --cpad:13mm;        /* lề trái/phải nội dung – gọn, không thừa  */
+  }
+  *{ box-sizing:border-box; margin:0; padding:0; }
+  html,body{
+    background:#9aa7a4;
+    font-family:"Segoe UI","Roboto","Helvetica Neue",Arial,"Noto Sans",sans-serif;
+    color:var(--ink); -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility;
+  }
+  /* Chống xuống dòng mồ côi 1–2 từ */
+  p,li,.fstep span,.kpi .l,.banner p,.note{ text-wrap:pretty; }
+  h1,h2,h3,.title h1,.card h3{ text-wrap:balance; }
+
+  .page{
+    width:210mm; height:297mm; background:#fff; margin:8mm auto;
+    display:flex; flex-direction:column; overflow:hidden; box-shadow:0 2px 14px rgba(0,0,0,.18);
+  }
+
+  /* ---- Dải hoa tiết thương hiệu TVU (lấy từ ảnh brand, đúng góc nghiêng) ---- */
+  .brandband{ display:block; width:100%; height:8.5mm; object-fit:cover; object-position:left center; background:var(--navy); flex:0 0 auto; }
+  .brandband.bot{ transform:rotate(180deg); }
+
+  /* ---- Header ---- */
+  .header{ display:flex; align-items:center; gap:14px; padding:9px var(--cpad); }
+  .header .logo{ width:19mm; height:19mm; flex:0 0 19mm; object-fit:contain; }
+  .header .org{ flex:1; }
+  .header .org .vn{ font-size:15px; font-weight:800; color:var(--navy); letter-spacing:.3px; }
+  .header .org .fac{ font-size:10.5px; color:var(--blue); margin-top:1px; }
+  .header .org .en{ font-size:9.5px; color:var(--muted); letter-spacing:2px; margin-top:1px; text-transform:uppercase; }
+  .header .dtfi{ height:16mm; flex:0 0 auto; object-fit:contain; }
+
+  /* ---- Vùng nội dung ---- */
+  .inner{ flex:1; display:flex; flex-direction:column; gap:7px; padding:6px var(--cpad) 4px; min-height:0; }
+
+  .title{ }
+  .title .pre{ font-size:9.5px; color:var(--green); font-weight:800; letter-spacing:2px; text-transform:uppercase; }
+  .title h1{ font-size:24px; line-height:1.2; color:var(--blue-d); font-weight:800; margin:3px 0 7px; }
+  .title .who{ display:flex; flex-wrap:wrap; gap:6px 8px; align-items:center; border-top:2px solid var(--blue); padding-top:8px; font-size:10.7px; }
+  .title .who .chip{ background:var(--panel); border:1px solid var(--line); padding:4px 11px; }
+  .title .who .chip b{ color:var(--blue-d); }
+
+  .sect-h{ display:flex; align-items:center; gap:8px; margin-bottom:5px; }
+  .sect-h .b{ width:6px; height:15px; background:var(--blue); }
+  .sect-h h2{ font-size:13.5px; color:var(--blue-d); font-weight:800; text-transform:uppercase; letter-spacing:.7px; }
+
+  .grid2{ display:grid; grid-template-columns:1fr 1fr; gap:7px; }
+  .grid3{ display:grid; grid-template-columns:repeat(3,1fr); gap:7px; }
+  .grid4{ display:grid; grid-template-columns:repeat(4,1fr); gap:7px; }
+
+  .card{ background:var(--panel); border:1px solid var(--line); border-left:4px solid var(--blue); padding:9px 12px; }
+  .card.green{ border-left-color:var(--green-b); }
+  .card h3{ font-size:11px; color:var(--blue-d); font-weight:800; text-transform:uppercase; letter-spacing:.5px; margin-bottom:4px; }
+  .card.green h3{ color:var(--green); }
+  p{ font-size:11.2px; line-height:1.48; color:#22303d; }
+
+  ul.clean{ list-style:none; display:flex; flex-direction:column; gap:6px; }
+  ul.clean > li{ position:relative; padding-left:16px; font-size:11.2px; line-height:1.42; color:#22303d; }
+  ul.clean > li::before{ content:""; position:absolute; left:1px; top:5px; width:7px; height:7px; background:var(--blue); }
+  ul.clean.green > li::before{ background:var(--green-b); }
+  ul.clean > li b{ color:var(--blue-d); }
+
+  .kpi{ background:#fff; border:1px solid var(--line); border-top:4px solid var(--blue); padding:9px 8px; text-align:center; }
+  .kpi .v{ font-size:25px; font-weight:800; color:var(--blue); line-height:1; }
+  .kpi .v small{ font-size:11px; font-weight:700; }
+  .kpi .l{ font-size:9.6px; color:var(--muted); margin-top:6px; line-height:1.28; }
+
+  .flow{ display:grid; grid-template-columns:repeat(5,1fr); gap:6px; }
+  .fstep{ border:1px solid var(--line); border-top:4px solid var(--blue); padding:8px 9px; }
+  .fstep .n{ font-size:15px; font-weight:800; color:var(--blue); }
+  .fstep b{ display:block; font-size:10.4px; color:var(--blue-d); margin:2px 0; line-height:1.2; }
+  .fstep span{ font-size:9.2px; color:var(--muted); line-height:1.3; }
+
+  table{ width:100%; border-collapse:collapse; font-size:11px; }
+  thead th{ background:var(--navy); color:#fff; font-weight:700; padding:7px 9px; text-align:left; white-space:nowrap; }
+  tbody td{ padding:5.5px 9px; border-bottom:1px solid var(--line); white-space:nowrap; }
+  tbody tr:nth-child(even){ background:var(--panel); }
+  td.num,th.num{ text-align:right; font-variant-numeric:tabular-nums; }
+  tr.best td{ background:#e2ecf8; font-weight:700; color:var(--blue-d); }
+  tr.best td:first-child::after{ content:"  ★"; color:var(--green); }
+
+  .tag{ display:inline-block; font-size:8.7px; font-weight:700; padding:2px 7px; letter-spacing:.3px; white-space:nowrap; }
+  .tag.ghost{ background:#fff; color:var(--blue-d); border:1px solid var(--blue); }
+  .tag.hpr{ background:var(--green-b); color:var(--navy); }
+
+  .banner{ background:var(--navy); color:#fff; padding:10px 14px; display:flex; gap:14px; align-items:center; }
+  .banner .h{ font-size:12px; font-weight:800; letter-spacing:.6px; text-transform:uppercase; white-space:nowrap; color:var(--yellow); }
+  .banner p{ color:#eaf1fb; font-size:11px; line-height:1.48; }
+  .banner b{ color:#fff; }
+  .banner u{ color:var(--yellow); text-decoration:none; font-weight:700; }
+
+  .note{ font-size:9px; color:var(--muted); font-style:italic; margin-top:4px; line-height:1.35; }
+
+  /* ---- Footer ---- */
+  .foot{ display:flex; justify-content:space-between; align-items:center; background:var(--navy); color:#fff; padding:7px var(--cpad); font-size:9.6px; }
+  .foot .l b{ color:#fff; }
+  .foot .r{ color:var(--yellow); font-weight:700; letter-spacing:.5px; }
+
+  @media print{ html,body{ background:#fff; } .page{ margin:0; box-shadow:none; } }
+  @page{ size:A4 portrait; margin:0; }
+</style>
+</head>
+<body>
+<section class="page">
+
+  <img class="brandband" src="assets/band.png" alt="">
+
+  <!-- HEADER -->
+  <div class="header">
+    <img class="logo" src="assets/tvu-logo.png" alt="Logo Trường Đại học Trà Vinh">
+    <div class="org">
+      <div class="vn">ĐẠI HỌC TRÀ VINH</div>
+      <div class="fac">Trường Kỹ thuật &amp; Công nghệ — Ngành Công nghệ thông tin</div>
+      <div class="en">Tra Vinh University</div>
+    </div>
+    <img class="dtfi" src="assets/dtfi.png" alt="Giá trị cốt lõi TVU: Devotion · Transparency · Friendliness · Innovation">
+  </div>
+
+  <div class="inner">
+
+    <!-- TIÊU ĐỀ -->
+    <div class="title">
+      <div class="pre">Khóa luận tốt nghiệp · Năm 2026</div>
+      <h1>Mô hình học máy dự đoán tốc độ tạo hydro trong hệ thống lên men kỵ khí</h1>
+      <div class="who">
+        <span class="chip"><b>SV:</b> Trần Minh Điền</span>
+        <span class="chip"><b>MSSV:</b> 110122050</span>
+        <span class="chip"><b>Lớp:</b> DA22TTA</span>
+        <span class="chip"><b>Khóa:</b> 2022</span>
+        <span class="chip"><b>GVHD:</b> TS.&nbsp;Nguyễn&nbsp;Bảo&nbsp;Ân</span>
+      </div>
+    </div>
+
+    <!-- ĐẶT VẤN ĐỀ + MỤC TIÊU -->
+    <div>
+      <div class="sect-h"><div class="b"></div><h2>Đặt vấn đề &amp; Mục tiêu</h2></div>
+      <div class="grid2">
+        <div class="card">
+          <h3>Bối cảnh &amp; vấn đề</h3>
+          <p>Hydro sinh học từ <b>lên men kỵ khí (lên men tối)</b> là hướng năng lượng sạch chi phí thấp. Tốc độ tạo hydro <b>(HPR)</b> phụ thuộc nhiều yếu tố sinh hóa phi tuyến nên khó dự đoán; thí nghiệm thăm dò trên bể phản ứng vừa tốn kém vừa mất thời gian.</p>
+        </div>
+        <div class="card green">
+          <h3>Mục tiêu nghiên cứu</h3>
+          <ul class="clean green">
+            <li><b>① GRA</b> xếp hạng ảnh hưởng của 11 đặc trưng tới HPR.</li>
+            <li><b>② So sánh 5 mô hình</b> ML: RF, XGBoost, DT, KNN, SVR.</li>
+            <li><b>③ Chọn tổ hợp đặc trưng tối ưu</b> bằng thêm tuần tự theo GRA&nbsp;+&nbsp;IG.</li>
+            <li><b>④ Giải thích</b> mô hình tốt nhất bằng SHAP, đối chiếu GRA.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- DỮ LIỆU + PHƯƠNG PHÁP -->
+    <div>
+      <div class="sect-h"><div class="b"></div><h2>Dữ liệu &amp; Phương pháp</h2></div>
+      <div class="grid3" style="margin-bottom:6px">
+        <div class="kpi"><div class="v">11</div><div class="l">đặc trưng → HPR</div></div>
+        <div class="kpi"><div class="v">5</div><div class="l">mô hình so sánh</div></div>
+        <div class="kpi"><div class="v">3</div><div class="l">phương pháp xếp hạng</div></div>
+      </div>
+      <div class="card green" style="margin-bottom:6px">
+        <h3>11 đặc trưng đầu vào</h3>
+        <p style="line-height:1.85">
+          <span class="tag ghost">pH</span> <span class="tag ghost">VSS</span> <span class="tag ghost">Ethanol</span>
+          <span class="tag ghost">Acetate</span> <span class="tag ghost">Propionate</span> <span class="tag ghost">Butyrate</span>
+          <span class="tag ghost">Sucrose&nbsp;Degr.</span> <span class="tag ghost">ORP&#8209;Mid</span> <span class="tag ghost">ORP&#8209;Low</span>
+          <span class="tag ghost">VFA</span> <span class="tag ghost">COD&#8209;O</span> <span class="tag hpr">→ HPR (L/h/L)</span>
+        </p>
+      </div>
+      <div class="flow">
+        <div class="fstep"><div class="n">1</div><b>Tiền xử lý</b><span>Làm sạch · chuẩn hóa MinMax X,&nbsp;y → [0,1]</span></div>
+        <div class="fstep"><div class="n">2</div><b>GRA + IG</b><span>Xếp hạng, hợp nhất → chọn top‑3</span></div>
+        <div class="fstep"><div class="n">3</div><b>Huấn luyện</b><span>SVR·DT·RF·KNN·XGBoost</span></div>
+        <div class="fstep"><div class="n">4</div><b>Thêm tuần tự</b><span>Mở rộng top‑3 → 11, đo R², MSE</span></div>
+        <div class="fstep"><div class="n">5</div><b>SHAP</b><span>Giải thích mô hình tốt nhất</span></div>
+      </div>
+    </div>
+
+    <!-- KẾT QUẢ -->
+    <div>
+      <div class="sect-h"><div class="b"></div><h2>Kết quả &amp; Thảo luận</h2></div>
+      <div class="grid2">
+        <div>
+          <table>
+            <thead><tr><th>Mô hình</th><th class="num">R²</th><th class="num">RMSE</th><th class="num">MAE</th></tr></thead>
+            <tbody>
+              <tr class="best"><td>KNN</td><td class="num">0,817</td><td class="num">2,49</td><td class="num">1,65</td></tr>
+              <tr><td>Random Forest</td><td class="num">0,776</td><td class="num">2,76</td><td class="num">1,84</td></tr>
+              <tr><td>XGBoost</td><td class="num">0,749</td><td class="num">2,91</td><td class="num">2,10</td></tr>
+              <tr><td>SVR</td><td class="num">0,732</td><td class="num">3,01</td><td class="num">2,08</td></tr>
+              <tr><td>Decision Tree</td><td class="num">0,560</td><td class="num">3,86</td><td class="num">2,39</td></tr>
+            </tbody>
+          </table>
+          <p class="note">RMSE, MAE đơn vị L/h/L · KNN cho R² cao nhất, sai số thấp nhất.</p>
+        </div>
+        <div>
+          <table>
+            <thead><tr><th>Đặc trưng then chốt</th><th class="num">GRA</th><th class="num">|SHAP|</th></tr></thead>
+            <tbody>
+              <tr class="best"><td>VFA</td><td class="num">0,793</td><td class="num">0,037</td></tr>
+              <tr class="best"><td>Butyrate</td><td class="num">0,790</td><td class="num">0,046</td></tr>
+              <tr class="best"><td>Acetate</td><td class="num">0,777</td><td class="num">0,035</td></tr>
+              <tr><td>VSS</td><td class="num">0,706</td><td class="num">0,032</td></tr>
+              <tr><td>pH / Sucrose Degr.</td><td class="num">cuối</td><td class="num">cuối</td></tr>
+            </tbody>
+          </table>
+          <p class="note">Nhóm acid béo bay hơi (VFA, Butyrate, Acetate) dẫn đầu ở cả 3 phương pháp.</p>
+        </div>
+      </div>
+      <div class="grid3" style="margin-top:6px">
+        <div class="card"><h3>Mô hình tối ưu</h3><p><b>KNN</b> đạt R² = 0,817; vượt cả XGBoost — mô hình đơn giản lại phù hợp dữ liệu quy mô thử nghiệm, liên tục cục bộ.</p></div>
+        <div class="card"><h3>Tổ hợp đặc trưng</h3><p>KNN gần như <b>bão hòa từ 9 đặc trưng</b> (0,815→0,818); chỉ với top‑3 đã giúp RF đạt R² = 0,775.</p></div>
+        <div class="card green"><h3>Đồng thuận 3 PP</h3><p>Xếp hạng <b>trước</b> và <b>sau</b> huấn luyện nhất quán ở nhóm yếu tố then chốt → kết luận vững.</p></div>
+      </div>
+    </div>
+
+    <!-- KẾT LUẬN -->
+    <div class="banner">
+      <div class="h">Kết luận</div>
+      <p><b>KNN dự đoán HPR tốt nhất</b> (R² = 0,817; RMSE = 2,49&nbsp;L/h/L). Nhóm acid béo bay hơi (VFA, Butyrate, Acetate) và sinh khối (VSS) là yếu tố chi phối; chỉ 3–4 đặc trưng đã đạt R²&nbsp;&gt;&nbsp;0,75 → giảm chi phí cảm biến và phân tích mẫu. <u>Hướng&nbsp;phát&nbsp;triển:</u> mở rộng dữ liệu, tinh chỉnh siêu tham số, tích hợp dự đoán thời gian thực vào dashboard giám sát.</p>
+    </div>
+
+  </div>
+
+  <!-- FOOTER -->
+  <div class="foot">
+    <span class="l"><b>Trần Minh Điền</b> · 110122050 · DA22TTA · Đại học Trà Vinh · 2026</span>
+    <span class="r">www.tvu.edu.vn</span>
+  </div>
+  <img class="brandband bot" src="assets/band.png" alt="">
+
+</section>
+</body>
+</html>
